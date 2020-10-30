@@ -6,6 +6,6 @@ namespace MongoDBApi.Objects
         string Message {get; set;}
 
         string ToString();
-        void Build(int statusCode, string message);
+        string Build(int statusCode, string message);
     }
 }

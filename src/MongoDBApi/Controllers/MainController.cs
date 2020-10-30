@@ -33,6 +33,9 @@ namespace MongoDBApi.Controllers
         [HttpGet("CollectionInfo")]
         public IActionResult CollectionInfo(string connectionString, string databaseName)
         {
+            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
+                return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
+
            return Ok(_mongoCrudOps.GetAllCollections(connectionString, databaseName));
         }
 
@@ -40,10 +43,8 @@ namespace MongoDBApi.Controllers
         public IActionResult ObjectInfo(string connectionString, string databaseName, string collectionName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
-            {
-                _errorDetails.Build(404, $"Database: {databaseName} could not be found");
-                return NotFound(_errorDetails.ToString());
-            }
+                return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
+
             return Ok( _mongoCrudOps.GetFiles(connectionString, databaseName, collectionName));
         }
 

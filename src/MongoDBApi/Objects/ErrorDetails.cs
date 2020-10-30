@@ -12,10 +12,12 @@ namespace MongoDBApi.Objects
             return JsonConvert.SerializeObject(this);
         }
 
-        public void Build(int statusCode, string message)
+        public string Build(int statusCode, string message)
         {
             StatusCode = statusCode;
             Message = message;
+
+            return this.ToString();
         }
     }
 }
