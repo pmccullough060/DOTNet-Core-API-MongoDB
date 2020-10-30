@@ -21,23 +21,23 @@ namespace MongoDBApi.CRUD
                 database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(100);
                 return client;
             }
-            catch( Exception e)
+            catch(Exception)
             {
-                throw new Exception("Unable to establish client using the provided connection string" + e);
+                throw new ArgumentException();
             }
         }
 
         public bool CheckDatabaseExists(string connectionString, string databaseName)
         {
-            var mongoClient = EstablishClient(connectionString);
-            var databaseNames = mongoClient.ListDatabaseNames().ToList();
+            var client = EstablishClient(connectionString);
+            var databaseNames = client.ListDatabaseNames().ToList();
             return (databaseNames.Contains(databaseName));
         }
 
         public string GetAllDatabases(string connectionString)
         {
             var mongoClient = EstablishClient(connectionString);
-            var bsonDbList = mongoClient.ListDatabases().ToList();
+            var bsonDbList = mongoClient.ListDatabases().ToList();                
             var jsonWriteSettings = new JsonWriterSettings {OutputMode = JsonOutputMode.CanonicalExtendedJson};
             return bsonDbList.ToJson();
         }
@@ -47,6 +47,8 @@ namespace MongoDBApi.CRUD
             var mongoClient = EstablishClient(connectionString);
             var database = mongoClient.GetDatabase(databaseName);
             var collections = database.ListCollectionNames().ToList();
+            if (!collections.Any())
+                throw new ArgumentException();
             var jsonWriteSettings = new JsonWriterSettings {OutputMode = JsonOutputMode.CanonicalExtendedJson};
             return collections.ToJson();
         }
@@ -61,9 +63,4 @@ namespace MongoDBApi.CRUD
             return objects.ToJson();
         }
     }
-
-    
-
-
-
 }

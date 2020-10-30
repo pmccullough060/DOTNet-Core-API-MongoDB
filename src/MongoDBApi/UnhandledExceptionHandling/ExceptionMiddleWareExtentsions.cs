@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -17,7 +18,16 @@ namespace MongoDBApi.UnhandledExceptionHandling
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     context.Response.ContentType = "application/json";
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    if(contextFeature != null)
+                    
+                    if(contextFeature.Error is ArgumentException)
+                    {
+                        await context.Response.WriteAsync(new ErrorDetails()
+                        {
+                            StatusCode = (int)HttpStatusCode.UnprocessableEntity,
+                            Message = "Unable to process the supplied arguments"
+                        }.ToString());
+                    }
+                    else if(contextFeature != null)
                     {
                         await context.Response.WriteAsync(new ErrorDetails()
                         {

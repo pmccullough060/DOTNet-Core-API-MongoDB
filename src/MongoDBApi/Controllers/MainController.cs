@@ -33,17 +33,19 @@ namespace MongoDBApi.Controllers
         [HttpGet("CollectionInfo")]
         public IActionResult CollectionInfo(string connectionString, string databaseName)
         {
-            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
-            {
-                var errorDetails = _errorDetails;
-                _errorDetails.StatusCode = 404;
-                _errorDetails.Message = $"Database: {databaseName} could not be found";
-                return NotFound(errorDetails.ToString());
-            }
            return Ok(_mongoCrudOps.GetAllCollections(connectionString, databaseName));
         }
 
-
+        [HttpGet("ObjectInfo")]
+        public IActionResult ObjectInfo(string connectionString, string databaseName, string collectionName)
+        {
+            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
+            {
+                _errorDetails.Build(404, $"Database: {databaseName} could not be found");
+                return NotFound(_errorDetails.ToString());
+            }
+            return Ok( _mongoCrudOps.GetFiles(connectionString, databaseName, collectionName));
+        }
 
 
 
