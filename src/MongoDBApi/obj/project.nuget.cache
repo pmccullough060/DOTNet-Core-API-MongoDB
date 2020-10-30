@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b2s8RmTBJ5D5U1R/lI2YRng6wk5EwArltY12++i8kzcIrodUw5cjF4TyQQHQSaN0KI0YjiFDA09ZsX4ZhD8CWA==",
+  "dgSpecHash": "NTpvrTxAVSLt/8zUlCpgtXMgrwGNkVvx4SMVjiJU4LGQO4IE2YNgw74277MP8KoYh0sTnHd+o+hxkOEt2qd5KA==",
   "success": true,
   "projectFilePath": "C:\\Users\\pmccu\\OneDrive\\Documents\\DOTNET_Core_API_MongoDB\\src\\MongoDBApi\\MongoDBApi.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\pmccu\\.nuget\\packages\\mongodb.driver.gridfs\\2.11.3\\mongodb.driver.gridfs.2.11.3.nupkg.sha512",
     "C:\\Users\\pmccu\\.nuget\\packages\\mongodb.libmongocrypt\\1.0.0\\mongodb.libmongocrypt.1.0.0.nupkg.sha512",
     "C:\\Users\\pmccu\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\pmccu\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\pmccu\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\pmccu\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\pmccu\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

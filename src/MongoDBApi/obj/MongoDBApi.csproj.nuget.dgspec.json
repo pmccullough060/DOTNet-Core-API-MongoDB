@@ -43,6 +43,10 @@
             "MongoDB.Driver.GridFS": {
               "target": "Package",
               "version": "[2.11.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [

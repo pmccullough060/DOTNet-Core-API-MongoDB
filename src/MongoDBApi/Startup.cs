@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDBApi.CRUD;
+using MongoDBApi.UnhandledExceptionHandling;
 
 namespace MongoDBApi
 {
@@ -38,6 +39,12 @@ namespace MongoDBApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.ConfigureExceptionHandler();
+            }
+
+            app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
