@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDBApi.CRUD;
+using MongoDBApi.Objects;
 
 namespace MongoDBApi.Controllers
 {
@@ -9,9 +13,11 @@ namespace MongoDBApi.Controllers
     public class MainController : ControllerBase
     {
         private readonly IMongoCRUDOps _mongoCrudOps;
-        public MainController(IMongoCRUDOps mongoCRUDOps)
+        private readonly IErrorDetails _errorDetails;
+        public MainController(IMongoCRUDOps mongoCRUDOps, IErrorDetails errorDetails)
         {
-            _mongoCrudOps = mongoCRUDOps;
+            _mongoCrudOps = mongoCRUDOps ?? throw new ArgumentNullException(nameof(mongoCRUDOps));
+            _errorDetails = errorDetails ?? throw new ArgumentNullException(nameof(errorDetails));
         }
 
         [HttpGet("DatabaseInfo")]   
@@ -23,6 +29,24 @@ namespace MongoDBApi.Controllers
             else
                 return NotFound("No database entires found");
         }
+
+        [HttpGet("CollectionInfo")]
+        public IActionResult CollectionInfo(string connectionString, string databaseName)
+        {
+            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
+            {
+                var errorDetails = _errorDetails;
+                _errorDetails.StatusCode = 404;
+                _errorDetails.Message = $"Database: {databaseName} could not be found";
+                return NotFound(errorDetails.ToString());
+            }
+           return Ok(_mongoCrudOps.GetAllCollections(connectionString, databaseName));
+        }
+
+
+
+
+
 
     }
 }

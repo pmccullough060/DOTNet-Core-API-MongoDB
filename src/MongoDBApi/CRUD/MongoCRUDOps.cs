@@ -42,6 +42,15 @@ namespace MongoDBApi.CRUD
             return bsonDbList.ToJson();
         }
 
+        public string GetAllCollections(string connectionString, string databaseName)
+        {
+            var mongoClient = EstablishClient(connectionString);
+            var database = mongoClient.GetDatabase(databaseName);
+            var collections = database.ListCollectionNames().ToList();
+            var jsonWriteSettings = new JsonWriterSettings {OutputMode = JsonOutputMode.CanonicalExtendedJson};
+            return collections.ToJson();
+        }
+
         public string GetFiles(string connectionString, string databaseName, string collectionName)
         {
             var mongoClient = EstablishClient(connectionString);

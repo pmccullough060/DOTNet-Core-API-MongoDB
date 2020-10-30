@@ -22,9 +22,9 @@ namespace MongoDBApi.tests
         {
             string url = "/commands/DatabaseInfo?connectionString=mongodb://localhost:27016"; //intentiaionally wrong
             var client = _factory.CreateClient();
-            var response = await client.GetAsync(url);
-            var responseContent = await response.Content.ReadAsStringAsync();
-            Assert.Contains("Internal Server Error", responseContent);
+            var response = await client.GetAsync(url); 
+            var responseContent = await response.Content.ReadAsStringAsync(); //converts the reponse message to a string
+            Assert.Contains("Internal Server Error", responseContent); //Verifies our unhandled exception middleware is working
             Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
         }
     }

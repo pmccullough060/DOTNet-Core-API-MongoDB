@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDBApi.CRUD;
+using MongoDBApi.Objects;
 using MongoDBApi.UnhandledExceptionHandling;
 
 namespace MongoDBApi
@@ -30,6 +31,7 @@ namespace MongoDBApi
             services.AddControllers();
 
             services.AddScoped<IMongoCRUDOps, MongoCRUDOps>();
+            services.AddScoped<IErrorDetails, ErrorDetails>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

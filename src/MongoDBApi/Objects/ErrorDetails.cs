@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace MongoDBApi.UnhandledExceptionHandling
+namespace MongoDBApi.Objects
 {
-    public class ErrorDetails 
+    public class ErrorDetails : IErrorDetails
     {
         public int StatusCode {get; set;}
         public string Message {get; set;}
