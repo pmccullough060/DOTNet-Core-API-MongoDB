@@ -6,46 +6,54 @@ using MongoDB.Driver;
 using MongoDB.Driver.Core.Connections;
 using MongoDB.Driver.Core.Servers;
 using MongoDB.Driver.GridFS;
+using MongoDBApi.CustomExceptions;
+using MongoDBApi.Database;
 
 namespace MongoDBApi.CRUD
 {
     public class MongoCRUDOps : IMongoCRUDOps
     {
-        public MongoClient EstablishClient(string connectionString)
+        private readonly IDatabaseSettings _databaseSettings;
+        private readonly MongoClient client;
+
+        public MongoCRUDOps(IDatabaseSettings databaseSettings)
+        {
+            _databaseSettings = databaseSettings ?? throw new ArgumentNullException(nameof(databaseSettings));
+            client = EstablishClient();
+        }
+
+        public MongoClient EstablishClient()
         {
             try
             {
-                var client = new MongoClient(connectionString);
+                var client = new MongoClient(_databaseSettings.connectionString);
                 var dbNames = client.ListDatabaseNames().ToList();
                 var database = client.GetDatabase(dbNames.First());
                 database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(100);
                 return client;
             }
-            catch(Exception)
+            catch
             {
-                throw new ArgumentException();
+                throw new NoDBConnectionException();
             }
         }
 
-        public bool CheckDatabaseExists(string connectionString, string databaseName)
+        public bool CheckDatabaseExists(string databaseName)
         {
-            var client = EstablishClient(connectionString);
             var databaseNames = client.ListDatabaseNames().ToList();
             return (databaseNames.Contains(databaseName));
         }
 
-        public string GetAllDatabases(string connectionString)
+        public string GetAllDatabases()
         {
-            var mongoClient = EstablishClient(connectionString);
-            var bsonDbList = mongoClient.ListDatabases().ToList();                
+            var bsonDbList = client.ListDatabases().ToList();                
             var jsonWriteSettings = new JsonWriterSettings {OutputMode = JsonOutputMode.CanonicalExtendedJson};
             return bsonDbList.ToJson();
         }
 
-        public string GetAllCollections(string connectionString, string databaseName)
+        public string GetAllCollections(string databaseName)
         {
-            var mongoClient = EstablishClient(connectionString);
-            var database = mongoClient.GetDatabase(databaseName);
+            var database = client.GetDatabase(databaseName);
             var collections = database.ListCollectionNames().ToList();
             if (!collections.Any())
                 throw new ArgumentException();
@@ -53,10 +61,9 @@ namespace MongoDBApi.CRUD
             return collections.ToJson();
         }
 
-        public string GetFiles(string connectionString, string databaseName, string collectionName)
+        public string GetFiles(string databaseName, string collectionName)
         {
-            var mongoClient = EstablishClient(connectionString);
-            var database = mongoClient.GetDatabase(databaseName);
+            var database = client.GetDatabase(databaseName);
             var fs = new GridFSBucket(database);
             var collection = database.GetCollection<BsonDocument>(collectionName);
             var objects = collection.Find(new BsonDocument()).ToList();

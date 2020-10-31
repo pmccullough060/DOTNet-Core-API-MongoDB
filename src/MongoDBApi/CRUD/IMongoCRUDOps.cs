@@ -4,10 +4,10 @@ namespace MongoDBApi.CRUD
 {
     public interface IMongoCRUDOps
     {
-        MongoClient EstablishClient(string connectionString);
-        bool CheckDatabaseExists(string connectionString, string databaseName);
-        string GetAllDatabases(string connectionString);
-        string GetFiles(string connectionString, string databaseName, string collectionName);
-        string GetAllCollections(string connectionString, string databaseName);
+        MongoClient EstablishClient();
+        bool CheckDatabaseExists(string databaseName);
+        string GetAllDatabases();
+        string GetFiles(string databaseName, string collectionName);
+        string GetAllCollections(string databaseName);
     }
 }

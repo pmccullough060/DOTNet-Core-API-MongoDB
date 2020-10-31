@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using MongoDBApi.CRUD;
 using MongoDBApi.Objects;
 using MongoDBApi.UnhandledExceptionHandling;
+using MongoDBApi.Database;
+using Microsoft.Extensions.Options;
 
 namespace MongoDBApi
 {
@@ -29,6 +31,12 @@ namespace MongoDBApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.Configure<DatabaseSettings>(
+                Configuration.GetSection(nameof(DatabaseSettings)));
+
+            services.AddSingleton<IDatabaseSettings>(sp => 
+            sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddScoped<IMongoCRUDOps, MongoCRUDOps>();
             services.AddScoped<IErrorDetails, ErrorDetails>();

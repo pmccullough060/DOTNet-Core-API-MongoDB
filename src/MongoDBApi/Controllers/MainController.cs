@@ -21,9 +21,9 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("DatabaseInfo")]   
-        public IActionResult DatabaseInfo(string connectionString) //mongodb://localhost:27017
+        public IActionResult DatabaseInfo()
         {
-            var jsonStringDB =  _mongoCrudOps.GetAllDatabases(connectionString);
+            var jsonStringDB =  _mongoCrudOps.GetAllDatabases();
             if(jsonStringDB != null)
                 return Ok(jsonStringDB);
             else
@@ -31,25 +31,24 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("CollectionInfo")]
-        public IActionResult CollectionInfo(string connectionString, string databaseName)
+        public IActionResult CollectionInfo(string databaseName)
         {
-            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
+            if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
                 return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
 
-           return Ok(_mongoCrudOps.GetAllCollections(connectionString, databaseName));
+            
+           return Ok(_mongoCrudOps.GetAllCollections(databaseName));
         }
 
         [HttpGet("ObjectInfo")]
-        public IActionResult ObjectInfo(string connectionString, string databaseName, string collectionName)
+        public IActionResult ObjectInfo(string databaseName, string collectionName)
         {
-            if(_mongoCrudOps.CheckDatabaseExists(connectionString, databaseName) == false)
+            if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
                 return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
 
-            return Ok( _mongoCrudOps.GetFiles(connectionString, databaseName, collectionName));
+            //check if the collections exists
+            
+            return Ok( _mongoCrudOps.GetFiles(databaseName, collectionName));
         }
-
-
-
-
     }
 }
