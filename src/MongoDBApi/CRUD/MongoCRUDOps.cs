@@ -32,9 +32,9 @@ namespace MongoDBApi.CRUD
                 database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(100);
                 return client;
             }
-            catch
+            catch (Exception e)
             {
-                throw new NoDBConnectionException();
+                throw new NoDBConnectionException("Cannot establish DB connection" + e);
             }
         }
 

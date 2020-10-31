@@ -3,6 +3,7 @@ using System.Net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using MongoDBApi.CustomExceptions;
 using MongoDBApi.Objects;
 
 namespace MongoDBApi.UnhandledExceptionHandling
@@ -19,12 +20,12 @@ namespace MongoDBApi.UnhandledExceptionHandling
                     context.Response.ContentType = "application/json";
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
                     
-                    if(contextFeature.Error is ArgumentException)
+                    if(contextFeature.Error is NoDBConnectionException)
                     {
                         await context.Response.WriteAsync(new ErrorDetails()
                         {
-                            StatusCode = (int)HttpStatusCode.UnprocessableEntity,
-                            Message = "Unable to process the supplied arguments"
+                            StatusCode = context.Response.StatusCode,
+                            Message = "Unable to establish a connection with the database"
                         }.ToString());
                     }
                     else if(contextFeature != null)
