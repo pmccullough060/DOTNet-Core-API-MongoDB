@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Driver;
 
 namespace MongoDBApi.CRUD
@@ -9,5 +12,8 @@ namespace MongoDBApi.CRUD
         string GetAllDatabases();
         string GetFiles(string databaseName, string collectionName);
         string GetAllCollections(string databaseName);
+        void CreateNewDatabase(string databaseName);
+        Task<string> UploadFiles(List<IFormFile> files, string databaseName);
+        Task<string> DownloadFile(string fileName, string databaseName);
     }
 }

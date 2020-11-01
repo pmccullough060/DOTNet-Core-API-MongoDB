@@ -77,12 +77,12 @@ namespace MongoDBApi.CRUD
             return objects.ToJson();
         }
 
-        public void CreateNewDatabase(string name)
+        public void CreateNewDatabase(string databaseName)
         {
             try
             {
-                var database = client.GetDatabase(name);
-                database.CreateCollection(name);
+                var database = client.GetDatabase(databaseName);
+                database.CreateCollection(databaseName);
             }
             catch(Exception e)
             {
@@ -113,6 +113,18 @@ namespace MongoDBApi.CRUD
                 }
             }
             return _uploadData.Build(files.Count(), size, filePaths);
+        }
+
+        public async Task<string> DownloadFile(string fileName, string databaseName)
+        {
+            var database = client.GetDatabase(databaseName);
+            var fs = new GridFSBucket(database);
+            var filePath = Path.GetTempFileName();
+            using(var stream = new FileStream(filePath, FileMode.OpenOrCreate))
+            {
+                await fs.DownloadToStreamByNameAsync(fileName, stream);
+            }
+            return filePath;
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDBApi.CRUD;
 using MongoDBApi.Objects;
@@ -27,7 +27,7 @@ namespace MongoDBApi.Controllers
             if(jsonStringDB != null)
                 return Ok(jsonStringDB);
             else
-                return NotFound("No database entires found");
+                return NotFound(_errorDetails.Build(404, "No Database entries were found"));
         }
 
         [HttpGet("CollectionInfo")]
@@ -36,7 +36,6 @@ namespace MongoDBApi.Controllers
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
                 return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
 
-            
            return Ok(_mongoCrudOps.GetAllCollections(databaseName));
         }
 
@@ -45,10 +44,31 @@ namespace MongoDBApi.Controllers
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
                 return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
-
-            //check if the collections exists
             
             return Ok( _mongoCrudOps.GetFiles(databaseName, collectionName));
+        }
+
+        [HttpPost("CreateDatabase")]
+        public IActionResult CreateDatabase(string databaseName)
+        {
+            if(_mongoCrudOps.CheckDatabaseExists(databaseName) == true)
+                return(NotFound(_errorDetails.Build(422, $"Database {databaseName} already exists, please choose another name")));
+
+            _mongoCrudOps.CreateNewDatabase(databaseName);
+            return Ok($"Database: {databaseName} was created");
+        }
+
+        [HttpPost("UploadFiles")]
+        public async Task<IActionResult> PostFile(List<IFormFile> files, string databaseName)
+        {
+            return Ok(await _mongoCrudOps.UploadFiles(files, databaseName));
+        }
+
+        [HttpGet("DownloadFile")]
+        public async Task<IActionResult> DownloadFile(string fileName, string databaseName)
+        {
+            var filePath = await _mongoCrudOps.DownloadFile(fileName, databaseName);
+            return PhysicalFile(filePath, "text/plain", fileName);
         }
     }
 }
