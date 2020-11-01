@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
@@ -8,18 +12,21 @@ using MongoDB.Driver.Core.Servers;
 using MongoDB.Driver.GridFS;
 using MongoDBApi.CustomExceptions;
 using MongoDBApi.Database;
+using MongoDBApi.Objects;
 
 namespace MongoDBApi.CRUD
 {
     public class MongoCRUDOps : IMongoCRUDOps
     {
         private readonly IDatabaseSettings _databaseSettings;
+        private readonly IUploadData _uploadData;
         private readonly MongoClient client;
 
-        public MongoCRUDOps(IDatabaseSettings databaseSettings)
+        public MongoCRUDOps(IDatabaseSettings databaseSettings, IUploadData uploadData)
         {
             _databaseSettings = databaseSettings ?? throw new ArgumentNullException(nameof(databaseSettings));
             client = EstablishClient();
+            _uploadData = uploadData;
         }
 
         public MongoClient EstablishClient()
@@ -68,6 +75,44 @@ namespace MongoDBApi.CRUD
             var collection = database.GetCollection<BsonDocument>(collectionName);
             var objects = collection.Find(new BsonDocument()).ToList();
             return objects.ToJson();
+        }
+
+        public void CreateNewDatabase(string name)
+        {
+            try
+            {
+                var database = client.GetDatabase(name);
+                database.CreateCollection(name);
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Unable to create Database" + e); //may need to create a custom exception and catch in the middleware exception handling.
+            }
+        }
+
+        public async Task<string> UploadFiles(List<IFormFile> files, string databaseName)
+        {
+            var database = client.GetDatabase(databaseName);
+            var fs = new GridFSBucket(database);
+            long size = files.Sum(x => x.Length);
+            var filePaths = new List<string>();
+            foreach(var file in files)
+            {
+                if(file.Length > 0)
+                {
+                    var filePath = Path.GetTempFileName();
+                    filePaths.Add(filePath);
+                    using(var stream = File.Create(filePath))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    using(var stream = new FileStream(filePath, FileMode.Open))
+                    {
+                        await fs.UploadFromStreamAsync(file.FileName, stream);
+                    }
+                }
+            }
+            return _uploadData.Build(files.Count(), size, filePaths);
         }
     }
 }

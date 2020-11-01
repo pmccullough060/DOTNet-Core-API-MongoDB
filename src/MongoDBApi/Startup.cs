@@ -32,6 +32,8 @@ namespace MongoDBApi
         {
             services.AddControllers();
 
+            //setting up dependency Injection...
+
             services.Configure<DatabaseSettings>(
                 Configuration.GetSection(nameof(DatabaseSettings)));
 
@@ -40,6 +42,7 @@ namespace MongoDBApi
 
             services.AddScoped<IMongoCRUDOps, MongoCRUDOps>();
             services.AddScoped<IErrorDetails, ErrorDetails>();
+            services.AddScoped<IUploadData, UploadData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
