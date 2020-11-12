@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDBApi.CRUD;
@@ -21,6 +22,7 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("DatabaseInfo")]   
+        [Authorize]
         public IActionResult DatabaseInfo()
         {
             var jsonStringDB =  _mongoCrudOps.GetAllDatabases();
