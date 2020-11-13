@@ -22,8 +22,8 @@ namespace MongoDBApi.Controllers
             _config = config;
         }
 
+        [HttpPost("Login")]
         [AllowAnonymous]
-        [HttpPost]
         public IActionResult Login([FromBody]UserModel login)
         {
             IActionResult response = Unauthorized();
@@ -56,7 +56,7 @@ namespace MongoDBApi.Controllers
         {
             UserModel user = null;
 
-            if(login.Username == "Peter")
+            if(login.Username == "Peter" && login.Password == "Peter")
             {
                 user = new UserModel {Username = "Peter McCullough", EmailAddress = "peter@gmail.com"};
             }
