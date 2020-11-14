@@ -43,6 +43,14 @@ namespace MongoDBApi.Controllers
             var SecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new[] //adding data to the new token, that will be returned to the user.
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, userInfo.Username),
+                new Claim(JwtRegisteredClaimNames.Email, userInfo.EmailAddress),
+                new Claim("DateOfJoining", userInfo.DateOfJoining.ToString("yyyy-MM-dd")),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["JWT:Issuer"],
                 null,
