@@ -395,3 +395,10 @@ C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

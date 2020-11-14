@@ -22,7 +22,7 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("DatabaseInfo")]   
-        [Authorize]
+        [Authorize(Policy = "StandardUser")]
         public IActionResult DatabaseInfo()
         {
             var jsonStringDB =  _mongoCrudOps.GetAllDatabases();

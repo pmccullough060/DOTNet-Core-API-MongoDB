@@ -18,6 +18,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MongoDBApi.AuthClasses;
 
 namespace MongoDBApi
 {
@@ -47,6 +48,11 @@ namespace MongoDBApi
                 };
             });
             
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("StandardUser", policy => policy.RequireClaim("IDNumber"));
+            });
+            
             services.AddControllers();
 
             //setting up dependency Injection...
@@ -57,6 +63,7 @@ namespace MongoDBApi
             services.AddSingleton<IDatabaseSettings>(sp => 
             sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
+            services.AddScoped<IAuth, Auth>();
             services.AddScoped<IMongoCRUDOps, MongoCRUDOps>();
             services.AddScoped<IErrorDetails, ErrorDetails>();
             services.AddScoped<IUploadData, UploadData>();

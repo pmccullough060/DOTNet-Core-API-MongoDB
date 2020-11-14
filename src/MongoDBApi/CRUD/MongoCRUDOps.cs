@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Connections;
-using MongoDB.Driver.Core.Servers;
 using MongoDB.Driver.GridFS;
 using MongoDBApi.CustomExceptions;
 using MongoDBApi.Database;
