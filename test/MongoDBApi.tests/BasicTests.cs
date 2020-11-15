@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.TestHost;
 using Moq;
 using Xunit;
 using MongoDBApi.Objects;
+using MongoDBApi.Controllers;
+using MongoDBApi.CRUD;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MongoDBApi.tests
 {
@@ -41,6 +44,31 @@ namespace MongoDBApi.tests
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
+        [Fact]
+        public void GetAllDatabases_Exists()
+        {
+            var mockCRUD = new Mock<IMongoCRUDOps>(); //mocking the database interaction layer
+
+            var mockErrorDetails = new Mock<IErrorDetails>();
+
+            mockCRUD.Setup(x => x.GetAllDatabases()).Returns("Success");
+
+            var controller = new MainController(mockCRUD.Object, mockErrorDetails.Object);
+
+            var actionResult = controller.DatabaseInfo();
+            var contentResult = (OkObjectResult)actionResult;
+
+            Assert.NotNull(contentResult);
+            Assert.Equal(200, contentResult.StatusCode);
+        }
+
+        [Fact]
+        public void GetAllDatabases_DontExist()
+        {
+            var mockCRUD = new Mock<IMongoCRUDOps>();
+
+            var mockErrorDetails = new Mock<IErrorDetails>();
+        }
 
     }
 }

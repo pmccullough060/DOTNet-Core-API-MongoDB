@@ -26,7 +26,7 @@ namespace MongoDBApi.Controllers
         public IActionResult DatabaseInfo()
         {
             var jsonStringDB =  _mongoCrudOps.GetAllDatabases();
-            if(jsonStringDB != null)
+            if(String.IsNullOrEmpty(jsonStringDB) == false)
                 return Ok(jsonStringDB);
             else
                 return NotFound(_errorDetails.Build(404, "No Database entries were found"));
