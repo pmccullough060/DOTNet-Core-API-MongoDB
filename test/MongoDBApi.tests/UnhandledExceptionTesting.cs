@@ -17,7 +17,6 @@ namespace MongoDBApi.tests
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
-        [Fact]
         public async Task UnhandledExceptionTest()
         {
             string url = "/commands/DatabaseInfo?connectionString=mongodb://localhost:27016"; //intentiaionally wrong

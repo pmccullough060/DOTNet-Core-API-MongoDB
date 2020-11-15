@@ -64,6 +64,7 @@ namespace MongoDBApi
             sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddScoped<IAuth, Auth>();
+            services.AddScoped<IUserModel, UserModel>();
             services.AddScoped<IMongoCRUDOps, MongoCRUDOps>();
             services.AddScoped<IErrorDetails, ErrorDetails>();
             services.AddScoped<IUploadData, UploadData>();
