@@ -14,11 +14,10 @@ namespace MongoDBApi.Controllers
     public class MainController : ControllerBase
     {
         private readonly IMongoCRUDOps _mongoCrudOps;
-        private readonly IErrorDetails _errorDetails;
-        public MainController(IMongoCRUDOps mongoCRUDOps, IErrorDetails errorDetails)
+
+        public MainController(IMongoCRUDOps mongoCRUDOps)
         {
             _mongoCrudOps = mongoCRUDOps ?? throw new ArgumentNullException(nameof(mongoCRUDOps));
-            _errorDetails = errorDetails ?? throw new ArgumentNullException(nameof(errorDetails));
         }
 
         [HttpGet("DatabaseInfo")]   
@@ -29,24 +28,32 @@ namespace MongoDBApi.Controllers
             if(String.IsNullOrEmpty(jsonStringDB) == false)
                 return Ok(jsonStringDB);
             else
-                return NotFound(_errorDetails.Build(404, "No Database entries were found"));
+                return NotFound("No Database entries were found");
         }
 
         [HttpGet("CollectionInfo")]
         public IActionResult CollectionInfo(string databaseName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
-                return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
+                return(NotFound($"Database {databaseName} does not exist"));
 
-           return Ok(_mongoCrudOps.GetAllCollections(databaseName));
+            var collectionInfo = _mongoCrudOps.GetAllCollections(databaseName);
+            if(String.IsNullOrEmpty(collectionInfo) == false)
+                return Ok(collectionInfo);
+            else
+                return NotFound("No collections were found");
         }
 
         [HttpGet("ObjectInfo")]
         public IActionResult ObjectInfo(string databaseName, string collectionName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
-                return(NotFound(_errorDetails.Build(404, $"Database {databaseName} does not exist")));
+                return(NotFound($"Database {databaseName} does not exist"));
             
+            var collectionInfo =_mongoCrudOps.GetAllCollections(collectionName);
+            if(String.IsNullOrEmpty(collectionInfo))
+                return NotFound($"Collection {collectionName} does not exist");
+
             return Ok( _mongoCrudOps.GetFiles(databaseName, collectionName));
         }
 
@@ -54,7 +61,7 @@ namespace MongoDBApi.Controllers
         public IActionResult CreateDatabase(string databaseName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == true)
-                return(NotFound(_errorDetails.Build(422, $"Database {databaseName} already exists, please choose another name")));
+                return(NotFound(ErrorDetails.Build(422, $"Database {databaseName} already exists, please choose another name")));
 
             _mongoCrudOps.CreateNewDatabase(databaseName);
             return Ok($"Database: {databaseName} was created");

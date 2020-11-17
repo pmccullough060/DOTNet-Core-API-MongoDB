@@ -49,11 +49,11 @@ namespace MongoDBApi.tests
         {
             var mockCRUD = new Mock<IMongoCRUDOps>(); //mocking the database interaction layer
 
-            var mockErrorDetails = new Mock<IErrorDetails>();
+            var errorDetails = new ErrorDetails();
 
             mockCRUD.Setup(x => x.GetAllDatabases()).Returns("Success");
 
-            var controller = new MainController(mockCRUD.Object, mockErrorDetails.Object);
+            var controller = new MainController(mockCRUD.Object);
 
             var actionResult = controller.DatabaseInfo();
             var contentResult = (OkObjectResult)actionResult;
@@ -67,7 +67,7 @@ namespace MongoDBApi.tests
         {
             var mockCRUD = new Mock<IMongoCRUDOps>();
 
-            var mockErrorDetails = new Mock<IErrorDetails>();
+            
         }
 
     }

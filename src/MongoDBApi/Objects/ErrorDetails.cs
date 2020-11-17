@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace MongoDBApi.Objects
 {
-    public class ErrorDetails : IErrorDetails
+    public class ErrorDetails 
     {
         public int StatusCode {get; set;}
         public string Message {get; set;}
@@ -12,12 +12,15 @@ namespace MongoDBApi.Objects
             return JsonConvert.SerializeObject(this);
         }
 
-        public string Build(int statusCode, string message)
+        public static ErrorDetails Build(int StatusCode, string message)
         {
-            StatusCode = statusCode;
-            Message = message;
+            var errorDetails = new ErrorDetails()
+            {
+                StatusCode = StatusCode,
+                Message = message
+            };
 
-            return this.ToString();
+            return errorDetails;
         }
     }
 }
