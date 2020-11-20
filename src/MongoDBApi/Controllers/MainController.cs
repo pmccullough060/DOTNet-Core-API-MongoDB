@@ -32,6 +32,7 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("CollectionInfo")]
+        [Authorize(Policy = "StandardUser")]
         public IActionResult CollectionInfo(string databaseName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
@@ -45,12 +46,13 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpGet("ObjectInfo")]
+        [Authorize(Policy = "StandardUser")]
         public IActionResult ObjectInfo(string databaseName, string collectionName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == false)
                 return(NotFound($"Database {databaseName} does not exist"));
             
-            var collectionInfo =_mongoCrudOps.GetAllCollections(collectionName);
+            var collectionInfo =_mongoCrudOps.GetAllCollections(databaseName);
             if(String.IsNullOrEmpty(collectionInfo))
                 return NotFound($"Collection {collectionName} does not exist");
 
@@ -58,6 +60,7 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpPost("CreateDatabase")]
+        [Authorize(Policy = "StandardUser")]
         public IActionResult CreateDatabase(string databaseName)
         {
             if(_mongoCrudOps.CheckDatabaseExists(databaseName) == true)
@@ -68,12 +71,14 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpPost("UploadFiles")]
+        [Authorize(Policy = "StandardUser")]
         public async Task<IActionResult> PostFile(List<IFormFile> files, string databaseName)
         {
             return Ok(await _mongoCrudOps.UploadFiles(files, databaseName));
         }
 
         [HttpGet("DownloadFile")]
+        [Authorize(Policy = "StandardUser")]
         public async Task<IActionResult> DownloadFile(string fileName, string databaseName)
         {
             var filePath = await _mongoCrudOps.DownloadFile(fileName, databaseName);
