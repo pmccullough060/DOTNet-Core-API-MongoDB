@@ -8,14 +8,12 @@ namespace MongoDBApi.Controllers
 {
     [Route("Authentication")]
     [ApiController]
-    public class AuthenticationContoller : ControllerBase
+    public class AuthenticationController : ControllerBase
     {
-        private readonly IConfiguration _config;
         private readonly IAuth _auth;
 
-        public AuthenticationContoller(IConfiguration config, IAuth auth)
+        public AuthenticationController(IAuth auth)
         {
-            _config = config;
             _auth = auth;
         }
 
