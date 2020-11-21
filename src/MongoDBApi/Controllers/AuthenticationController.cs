@@ -21,7 +21,7 @@ namespace MongoDBApi.Controllers
         [AllowAnonymous]
         public IActionResult Login([FromBody]UserModel login)
         {
-            IActionResult response = Unauthorized();
+            IActionResult response = Unauthorized(login);
             var user = _auth.AuthenticateUser(login);
 
             if(user != null)

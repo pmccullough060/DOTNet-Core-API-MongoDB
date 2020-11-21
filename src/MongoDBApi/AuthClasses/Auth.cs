@@ -40,13 +40,13 @@ namespace MongoDBApi.AuthClasses
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public UserModel AuthenticateUser(UserModel login)
+        public UserModel AuthenticateUser(UserModel login) //just for testing this can be expanded to allow database storage of users etc.
         {
             UserModel user = null;
 
             if(login.Username == "Peter" && login.Password == "Peter")
             {
-                user = new UserModel {Username = "Peter McCullough", EmailAddress= "Peter@gmail.com"};
+                user = new UserModel {Username = "PeterAdministrator", EmailAddress= "PeterAdministrator@gmail.com"};
             }
 
             return user;
