@@ -36,6 +36,5 @@ namespace MongoDBApi.IntegrationTesting
             var registrationResponse = await response.Content.ReadAsStringAsync();
             return registrationResponse;
         }
-
     }
 }
