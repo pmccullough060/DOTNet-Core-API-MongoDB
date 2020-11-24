@@ -39,7 +39,7 @@ namespace MongoDBApi.CRUD
             }
             catch (Exception e)
             {
-                throw new NoDBConnectionException("Cannot establish DB connection" + e);
+                 throw new NoDBConnectionException("Cannot establish DB connection" + e);
             }
         }
 

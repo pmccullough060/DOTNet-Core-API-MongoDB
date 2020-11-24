@@ -1,9 +1,13 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.IdentityModel.Tokens;
 using MongoDBApi.Objects;
+using Newtonsoft.Json;
 
 namespace MongoDBApi.IntegrationTesting
 {
@@ -31,10 +35,16 @@ namespace MongoDBApi.IntegrationTesting
                 Username = "Peter",
                 Password = "Peter"
             };
+
             var content = new StringContent(user.ToString(), Encoding.UTF8, "application/json");
             var response = await TestClient.PostAsync(url, content);
             var registrationResponse = await response.Content.ReadAsStringAsync();
-            return registrationResponse;
+            var jwtToken = JsonConvert.DeserializeObject<Token>(registrationResponse);
+            return jwtToken.token;
+        }
+        private class Token //used to deserialise the token against, .NET loves to put escape characters in the strings which was throwing off Newtownsoft.
+        {
+            public string token;
         }
     }
 }

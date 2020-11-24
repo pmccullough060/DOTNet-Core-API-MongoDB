@@ -1,3 +1,4 @@
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -6,7 +7,7 @@ namespace MongoDBApi.IntegrationTesting
     public class MainControllerIntTests : IntegrationTest
     {
         [Fact]
-        public async Task DatabaseInfo()
+        public async Task DatabaseInfo_ValidConnection()
         {
             //arrange
             await AuthenticateAsync();
@@ -14,9 +15,9 @@ namespace MongoDBApi.IntegrationTesting
             //act
             var url ="/Commands/DatabaseInfo";
             var response = await TestClient.GetAsync(url);
-
+            
             //assert
-
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
     }
 }

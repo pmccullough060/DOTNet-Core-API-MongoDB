@@ -48,7 +48,7 @@ namespace MongoDBApi.AuthClasses
             {
                 user = new UserModel {Username = "PeterAdministrator", EmailAddress= "PeterAdministrator@gmail.com"};
             }
-
+            
             return user;
         }
     }
