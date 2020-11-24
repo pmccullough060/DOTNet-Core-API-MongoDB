@@ -15,7 +15,20 @@ namespace MongoDBApi.IntegrationTesting
             //act
             var url ="/Commands/DatabaseInfo";
             var response = await TestClient.GetAsync(url);
-            
+
+            //assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task CollectionInfo_ValidConnection()
+        {
+            //arrange 
+            await AuthenticateAsync();
+
+            var url ="/commands/CollectionInfo?databaseName=test";
+            var response = await TestClient.GetAsync(url);
+
             //assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
