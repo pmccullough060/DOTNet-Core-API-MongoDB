@@ -10,7 +10,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("MongoDBApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\pmccu\\OneDrive\\Documents\\DOTNET_Core_API_MongoDB\\src\\MongoDBApi", "MongoDBApi.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("MongoDBApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "c:\\Users\\pmccu\\OneDrive\\Documents\\DOTNET_Core_API_MongoDB\\src\\MongoDBApi", "MongoDBApi.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("MongoDBApi.tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

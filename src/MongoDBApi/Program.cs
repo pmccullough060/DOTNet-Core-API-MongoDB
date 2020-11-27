@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -16,7 +18,9 @@ namespace MongoDBApi
         {
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .WriteTo.Console()
+                .WriteTo.File("log.txt") //need to sort this out when it goes to production 
                 .CreateLogger();
 
             Log.Information("Starting Application");

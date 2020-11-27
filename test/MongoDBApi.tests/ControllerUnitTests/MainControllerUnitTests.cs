@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using MongoDBApi.Controllers;
 using MongoDBApi.CRUD;
 using MongoDBApi.Objects;
@@ -17,7 +18,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
 
         public ControllerUnitTests()
         {
-            mockLoggerFactory = new Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory();
+            mockLoggerFactory = new NullLoggerFactory();
             mockLogger = mockLoggerFactory.CreateLogger<MainController>();
         }
 
