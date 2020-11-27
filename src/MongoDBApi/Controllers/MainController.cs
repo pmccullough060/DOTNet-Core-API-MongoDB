@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MongoDBApi.CRUD;
 using MongoDBApi.Objects;
 
@@ -14,16 +15,20 @@ namespace MongoDBApi.Controllers
     public class MainController : ControllerBase
     {
         private readonly IMongoCRUDOps _mongoCrudOps;
+        private readonly ILogger<MainController> _logger;
 
-        public MainController(IMongoCRUDOps mongoCRUDOps)
+        public MainController(IMongoCRUDOps mongoCRUDOps, ILogger<MainController> logger)
         {
             _mongoCrudOps = mongoCRUDOps ?? throw new ArgumentNullException(nameof(mongoCRUDOps));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("DatabaseInfo")]   //Onus is on the client to ensure that the database exists, that is what this end point if for... that validation will not be performed in the other methods.
         [Authorize(Policy = "StandardUser")]
         public IActionResult DatabaseInfo()
         {
+            _logger.LogInformation("Processing DatabaseInfo request");
+
             var jsonStringDB =  _mongoCrudOps.GetAllDatabases();
             if(String.IsNullOrEmpty(jsonStringDB) == false)
                 return Ok(jsonStringDB);

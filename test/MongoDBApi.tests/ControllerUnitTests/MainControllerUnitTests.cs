@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MongoDBApi.Controllers;
 using MongoDBApi.CRUD;
 using MongoDBApi.Objects;
@@ -11,13 +12,21 @@ namespace MongoDBApi.tests.ControllerUnitTests
     {
         public static string DbName = "Database";
         public static string ColName = "Collection";
+        public static ILoggerFactory mockLoggerFactory {get; set;}
+        public static ILogger<MainController> mockLogger {get; set;}
+
+        public ControllerUnitTests()
+        {
+            mockLoggerFactory = new Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory();
+            mockLogger = mockLoggerFactory.CreateLogger<MainController>();
+        }
 
         [Fact]
         public void DatabaseInfo_Exist_OkObjectResult()
         {
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.GetAllDatabases()).Returns("SomeDatabaseInfo"); 
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.DatabaseInfo();
             var contentResult = (OkObjectResult)actionResult;
             Assert.NotNull(contentResult);
@@ -29,7 +38,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
         {
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.GetAllDatabases()).Returns(""); //returns an empty string same as MongoDB driver
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.DatabaseInfo();
             var contentResult = (NotFoundObjectResult)actionResult;
             Assert.NotNull(contentResult);
@@ -41,7 +50,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
         {
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.GetAllCollections(DbName)).Returns(ColName); 
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.CollectionInfo(DbName);
             var contentResult = (OkObjectResult)actionResult;
             Assert.NotNull(contentResult);
@@ -53,7 +62,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
         {
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.CheckDatabaseExists(DbName)).Returns(true);
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.CollectionInfo(DbName);
             var contentResult = (NotFoundObjectResult)actionResult;
             Assert.NotNull(contentResult);
@@ -66,7 +75,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.GetAllCollections(ColName)).Returns("someCollectionData");
             mockCRUD.Setup(x => x.GetFiles(DbName, ColName)).Returns("SomeObjectsData");
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.ObjectInfo(DbName, ColName);
             var contentResult = (OkObjectResult)actionResult;
             Assert.NotNull(contentResult);
@@ -79,7 +88,7 @@ namespace MongoDBApi.tests.ControllerUnitTests
             var mockCRUD = new Mock<IMongoCRUDOps>();
             mockCRUD.Setup(x => x.GetAllCollections(ColName)).Returns("SomeCollectionData");
             mockCRUD.Setup(x => x.GetFiles(DbName, ColName)).Returns("");
-            var controller = new MainController(mockCRUD.Object);
+            var controller = new MainController(mockCRUD.Object, mockLogger);
             var actionResult = controller.ObjectInfo(DbName, ColName);
             var contentResult = (OkObjectResult)actionResult;
             Assert.NotNull(contentResult);
