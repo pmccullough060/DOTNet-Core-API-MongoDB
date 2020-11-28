@@ -77,8 +77,8 @@ namespace MongoDBApi.Controllers
         [Authorize(Policy = "StandardUser")]
         public async Task<IActionResult> DownloadFile(string fileName, string databaseName)
         {
-            var filePath = await _mongoCrudOps.DownloadFile(fileName, databaseName);
-            return PhysicalFile(filePath, "text/plain", fileName);
+            var stream = await _mongoCrudOps.DownloadFile(fileName, databaseName);
+            return File(stream, "application/....", fileName);
         }
     }
 }

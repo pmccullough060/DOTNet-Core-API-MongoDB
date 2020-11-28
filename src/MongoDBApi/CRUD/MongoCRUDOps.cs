@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
@@ -23,6 +24,7 @@ namespace MongoDBApi.CRUD
         public MongoCRUDOps(IDatabaseSettings databaseSettings, IUploadData uploadData)
         {
             _databaseSettings = databaseSettings ?? throw new ArgumentNullException(nameof(databaseSettings));
+
             client = EstablishClient();
             _uploadData = uploadData;
         }
@@ -39,7 +41,7 @@ namespace MongoDBApi.CRUD
             }
             catch (Exception e)
             {
-                 throw new NoDBConnectionException("Cannot establish DB connection" + e);
+                throw new NoDBConnectionException("Cannot establish DB connection" + e);
             }
         }
 
@@ -84,7 +86,7 @@ namespace MongoDBApi.CRUD
             }
             catch(Exception e)
             {
-                throw new Exception("Unable to create Database" + e); //may need to create a custom exception and catch in the middleware exception handling.
+                throw new Exception("Unable to create Database" + e); 
             }
         }
 
@@ -93,36 +95,29 @@ namespace MongoDBApi.CRUD
             var database = client.GetDatabase(databaseName);
             var fs = new GridFSBucket(database);
             long size = files.Sum(x => x.Length);
-            var filePaths = new List<string>();
             foreach(var file in files)
             {
                 if(file.Length > 0)
                 {
-                    var filePath = Path.GetTempFileName();
-                    filePaths.Add(filePath);
-                    using(var stream = File.Create(filePath))
+                    using (var ms = new MemoryStream())
                     {
-                        await file.CopyToAsync(stream);
-                    }
-                    using(var stream = new FileStream(filePath, FileMode.Open))
-                    {
-                        await fs.UploadFromStreamAsync(file.FileName, stream);
+                        file.CopyTo(ms);
+                        ms.Position = 0; //reset the position of the memory stream
+                        await fs.UploadFromStreamAsync(file.FileName, ms);
                     }
                 }
             }
-            return _uploadData.Build(files.Count(), size, filePaths);
+            return _uploadData.Build(files.Count(), size);
         }
 
-        public async Task<string> DownloadFile(string fileName, string databaseName)
+        public async Task<MemoryStream> DownloadFile(string fileName, string databaseName)
         {
             var database = client.GetDatabase(databaseName);
             var fs = new GridFSBucket(database);
-            var filePath = Path.GetTempFileName();
-            using(var stream = new FileStream(filePath, FileMode.OpenOrCreate))
-            {
-                await fs.DownloadToStreamByNameAsync(fileName, stream);
-            }
-            return filePath;
+            var ms = new MemoryStream();
+            await fs.DownloadToStreamByNameAsync(fileName, ms);
+            ms.Position = 0; 
+            return ms;
         }
     }
 }

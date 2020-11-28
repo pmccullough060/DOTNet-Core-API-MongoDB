@@ -7,9 +7,8 @@ namespace MongoDBApi.Objects
     {
         int NoFiles {get; set;}
         double SizeOnDisk {get; set;}
-        List<string> FilePaths {get; set;}
 
         string ToString();
-        string Build(int noFiles, double sizeOnDisk, List<string> filePaths);
+        string Build(int noFiles, double sizeOnDisk);
     }
 }

@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace MongoDBApi.IntegrationTesting
 {
     //for Integration testing 
-
+    //does the heavy of logging in and getting an API key
 
     public class IntegrationTest
     {
