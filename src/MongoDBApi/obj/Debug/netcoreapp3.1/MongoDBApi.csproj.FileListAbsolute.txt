@@ -1,6 +1,5 @@
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\MongoDBApi.exe
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\MongoDBApi.deps.json
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\MongoDBApi.runtimeconfig.json
@@ -57,3 +56,4 @@ C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Deb
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\MongoDBApi.styles.css

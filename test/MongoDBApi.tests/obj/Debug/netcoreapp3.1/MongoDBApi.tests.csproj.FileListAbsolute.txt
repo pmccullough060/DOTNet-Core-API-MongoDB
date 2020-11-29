@@ -96,7 +96,6 @@ C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\obj\Debug\netcoreapp3.1\MongoDBApi.tests.genruntimeconfig.cache
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\MongoDBApi.exe
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\MongoDBApi.dll
 C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\test\MongoDBApi.tests\bin\Debug\netcoreapp3.1\MongoDBApi.pdb

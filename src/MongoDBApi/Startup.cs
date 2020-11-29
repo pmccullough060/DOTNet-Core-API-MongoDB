@@ -52,6 +52,7 @@ namespace MongoDBApi
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("StandardUser", policy => policy.RequireClaim("IDNumber"));
+                options.AddPolicy("Administrator", policy => policy.RequireClaim("AllowUpload"));
             });
             
             services.AddControllers();

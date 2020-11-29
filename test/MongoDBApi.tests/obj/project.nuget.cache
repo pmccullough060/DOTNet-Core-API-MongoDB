@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zOc2/Q6572ZtKMbWeBrsJUspy9CGFbXty99L/BgopMhtFWgNWoijzSnex0cX/88wOoSBAdZyfxD6RfDkKBG/TA==",
+  "dgSpecHash": "VkgEijC2SL74SlS21EWmrSQCVhYIzPuRMnPcVs+F7GjeGDLBAVqm1W/8db/UZ6aGH2GtR+N8Li3uVdpIrkA97Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\pmccu\\OneDrive\\Documents\\DOTNET_Core_API_MongoDB\\test\\MongoDBApi.tests\\MongoDBApi.tests.csproj",
   "expectedPackageFiles": [
