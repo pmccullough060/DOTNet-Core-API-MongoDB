@@ -32,3 +32,13 @@ Thats it! all setup and running locally.
 
 ### Authentication and Authorization
 To begin using the API end points a user must first login with the correct username and password crendentials, a JWT token will then be issued for the corresponding authorization level. By default this API has two authorization levels, StandardUser and Administrator. Only an Adminstrator is allowed to upload files.
+
+To retrieve your JWT token, send an HTTP Post Request to /Authentication/Login with the Json file in the request body shown below:
+
+```json
+{
+  "username": "blah"
+  "password": "blah"
+}
+```
+
