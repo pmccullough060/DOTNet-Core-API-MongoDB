@@ -408,3 +408,342 @@ System.ObjectDisposedException: Cannot access a closed Stream.
 2020-11-29 12:38:07.672 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
 2020-11-29 12:38:07.672 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1682.3962 ms
 2020-11-29 12:38:07.673 +00:00 [INF] Request finished in 1759.8896ms 200 text/plain; charset=utf-8
+2020-12-04 16:50:42.164 +00:00 [INF] Starting Application
+2020-12-04 16:50:43.254 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 16:50:43.895 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 16:50:43.896 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 16:50:43.901 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 16:50:43.901 +00:00 [INF] Hosting environment: Development
+2020-12-04 16:50:43.902 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 16:51:07.301 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 16:51:07.723 +00:00 [INF] Request finished in 426.5496ms 307 
+2020-12-04 16:51:07.753 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 16:51:07.813 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 16:51:07.866 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 16:51:07.897 +00:00 [INF] Login attempt made
+2020-12-04 16:51:08.189 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 16:51:08.201 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 329.8392ms
+2020-12-04 16:51:08.203 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 16:51:08.205 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 447.9894 ms
+2020-12-04 16:51:08.206 +00:00 [INF] Request finished in 452.752ms 200 application/json; charset=utf-8
+2020-12-04 16:51:21.359 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 16:51:21.432 +00:00 [INF] Successfully validated the token.
+2020-12-04 16:51:21.439 +00:00 [INF] Authorization was successful.
+2020-12-04 16:51:21.439 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 16:51:21.443 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 16:51:23.158 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 16:51:23.203 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 16:51:23.205 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1761.0911ms
+2020-12-04 16:51:23.205 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 16:51:23.206 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1772.2471 ms
+2020-12-04 16:51:23.206 +00:00 [INF] Request finished in 1847.025ms 200 text/plain; charset=utf-8
+2020-12-04 16:51:50.816 +00:00 [INF] Starting Application
+2020-12-04 16:51:51.784 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 16:51:52.347 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 16:51:52.347 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 16:51:52.348 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 16:51:52.348 +00:00 [INF] Hosting environment: Development
+2020-12-04 16:51:52.348 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 16:52:00.512 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 16:52:00.896 +00:00 [INF] Successfully validated the token.
+2020-12-04 16:52:00.927 +00:00 [INF] Authorization failed.
+2020-12-04 16:52:00.930 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 16:52:00.932 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 30.4338 ms
+2020-12-04 16:52:00.946 +00:00 [INF] Request finished in 436.2647ms 403 
+2020-12-04 16:58:59.542 +00:00 [INF] Starting Application
+2020-12-04 16:59:00.547 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 16:59:01.008 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 16:59:01.009 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 16:59:01.009 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 16:59:01.010 +00:00 [INF] Hosting environment: Development
+2020-12-04 16:59:01.010 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 16:59:12.813 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 16:59:12.917 +00:00 [INF] Request finished in 106.8795ms 307 
+2020-12-04 16:59:12.950 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 16:59:13.002 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 16:59:13.045 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 16:59:13.071 +00:00 [INF] Login attempt made
+2020-12-04 16:59:13.266 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 16:59:13.276 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 225.5396ms
+2020-12-04 16:59:13.278 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 16:59:13.280 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 325.6206 ms
+2020-12-04 16:59:13.281 +00:00 [INF] Request finished in 330.5431ms 200 application/json; charset=utf-8
+2020-12-04 16:59:27.587 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 16:59:27.658 +00:00 [INF] Successfully validated the token.
+2020-12-04 16:59:27.667 +00:00 [INF] Authorization was successful.
+2020-12-04 16:59:27.668 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 16:59:27.671 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 16:59:29.234 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 16:59:29.288 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 16:59:29.289 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1617.3767ms
+2020-12-04 16:59:29.290 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 16:59:29.290 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1630.2736 ms
+2020-12-04 16:59:29.291 +00:00 [INF] Request finished in 1703.4283ms 200 text/plain; charset=utf-8
+2020-12-04 17:02:02.090 +00:00 [INF] Starting Application
+2020-12-04 17:02:02.933 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 17:02:03.451 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 17:02:03.452 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 17:02:03.453 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 17:02:03.453 +00:00 [INF] Hosting environment: Development
+2020-12-04 17:02:03.454 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 17:02:07.865 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 17:02:08.017 +00:00 [INF] Request finished in 156.2602ms 307 
+2020-12-04 17:02:08.078 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 17:02:08.120 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:02:08.172 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:02:08.206 +00:00 [INF] Login attempt made
+2020-12-04 17:02:08.371 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:02:08.381 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 204.2ms
+2020-12-04 17:02:08.385 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:02:08.387 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 304.8289 ms
+2020-12-04 17:02:08.388 +00:00 [INF] Request finished in 309.8753ms 200 application/json; charset=utf-8
+2020-12-04 17:02:18.349 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:02:18.421 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:02:18.429 +00:00 [INF] Authorization was successful.
+2020-12-04 17:02:18.430 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:02:18.433 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 17:02:19.803 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 17:02:19.845 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 17:02:19.847 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1413.2508ms
+2020-12-04 17:02:19.847 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:02:19.848 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1425.4389 ms
+2020-12-04 17:02:19.848 +00:00 [INF] Request finished in 1500.0793ms 200 text/plain; charset=utf-8
+2020-12-04 17:04:18.555 +00:00 [INF] Starting Application
+2020-12-04 17:04:19.465 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 17:04:19.958 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 17:04:19.961 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 17:04:19.962 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 17:04:19.962 +00:00 [INF] Hosting environment: Development
+2020-12-04 17:04:19.962 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 17:04:25.175 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:25.480 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:25.517 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:25.520 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:25.522 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 36.6077 ms
+2020-12-04 17:04:25.537 +00:00 [INF] Request finished in 363.9139ms 403 
+2020-12-04 17:04:27.056 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:27.062 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:27.066 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:27.067 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:27.067 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 4.1716 ms
+2020-12-04 17:04:27.068 +00:00 [INF] Request finished in 11.452ms 403 
+2020-12-04 17:04:28.018 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:28.024 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:28.028 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:28.029 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:28.030 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 4.6171 ms
+2020-12-04 17:04:28.033 +00:00 [INF] Request finished in 15.6774ms 403 
+2020-12-04 17:04:28.761 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:28.764 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:28.765 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:28.765 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:28.766 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 1.2575 ms
+2020-12-04 17:04:28.767 +00:00 [INF] Request finished in 5.3193ms 403 
+2020-12-04 17:04:29.485 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:29.488 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:29.490 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:29.490 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:29.491 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 1.6517 ms
+2020-12-04 17:04:29.492 +00:00 [INF] Request finished in 8.4436ms 403 
+2020-12-04 17:04:39.146 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 17:04:39.156 +00:00 [INF] Request finished in 9.9957ms 307 
+2020-12-04 17:04:39.159 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 17:04:39.160 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:04:39.195 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:04:39.219 +00:00 [INF] Login attempt made
+2020-12-04 17:04:39.241 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:04:39.249 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 49.6156ms
+2020-12-04 17:04:39.249 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:04:39.249 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 90.4359 ms
+2020-12-04 17:04:39.250 +00:00 [INF] Request finished in 91.2749ms 200 application/json; charset=utf-8
+2020-12-04 17:04:53.954 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:53.998 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:53.999 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:54.000 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:54.000 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 0.8654 ms
+2020-12-04 17:04:54.000 +00:00 [INF] Request finished in 46.1701ms 403 
+2020-12-04 17:04:54.818 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:54.821 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:54.822 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:54.823 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:54.823 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 1.9304 ms
+2020-12-04 17:04:54.825 +00:00 [INF] Request finished in 7.2385ms 403 
+2020-12-04 17:04:56.311 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:56.313 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:56.314 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:56.315 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:56.316 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 1.8553 ms
+2020-12-04 17:04:56.317 +00:00 [INF] Request finished in 5.4487ms 403 
+2020-12-04 17:04:56.999 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:04:57.001 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:04:57.003 +00:00 [INF] Authorization failed.
+2020-12-04 17:04:57.003 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:04:57.003 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 1.4956 ms
+2020-12-04 17:04:57.004 +00:00 [INF] Request finished in 4.9018ms 403 
+2020-12-04 17:32:22.593 +00:00 [INF] Starting Application
+2020-12-04 17:32:22.961 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 17:32:23.262 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 17:32:23.262 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 17:32:23.263 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 17:32:23.264 +00:00 [INF] Hosting environment: Development
+2020-12-04 17:32:23.264 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 17:32:33.275 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 17:32:33.318 +00:00 [INF] Request finished in 47.8833ms 307 
+2020-12-04 17:32:33.342 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 17:32:33.363 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:32:33.399 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:32:33.423 +00:00 [INF] Login attempt made
+2020-12-04 17:32:33.566 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:32:33.576 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 171.186ms
+2020-12-04 17:32:33.579 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:32:33.581 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 235.4054 ms
+2020-12-04 17:32:33.582 +00:00 [INF] Request finished in 239.846ms 200 application/json; charset=utf-8
+2020-12-04 17:32:50.286 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:32:50.343 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:32:50.348 +00:00 [INF] Authorization was successful.
+2020-12-04 17:32:50.349 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:32:50.351 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 17:32:51.660 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 17:32:51.717 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 17:32:51.718 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1367.2287ms
+2020-12-04 17:32:51.718 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:32:51.718 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1374.1725 ms
+2020-12-04 17:32:51.719 +00:00 [INF] Request finished in 1432.6213ms 200 text/plain; charset=utf-8
+2020-12-04 17:33:00.040 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:33:00.048 +00:00 [INF] Failed to validate the token.
+System.ArgumentException: IDX12729: Unable to decode the header '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string. jwtEncodedString: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+ ---> Newtonsoft.Json.JsonReaderException: Invalid property identifier character: !. Path 'alg', line 1, position 15.
+   at Newtonsoft.Json.JsonTextReader.ParseProperty()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateDictionary(IDictionary dictionary, JsonReader reader, JsonDictionaryContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type)
+   at System.IdentityModel.Tokens.Jwt.JsonExtensions.DeserializeJwtHeader(String jsonString)
+   at System.IdentityModel.Tokens.Jwt.JwtHeader.Base64UrlDeserialize(String base64UrlEncodedJsonString)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken.Decode(String[] tokenParts, String rawData)
+   --- End of inner exception stack trace ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken.Decode(String[] tokenParts, String rawData)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2020-12-04 17:33:00.085 +00:00 [INF] Bearer was not authenticated. Failure message: IDX12729: Unable to decode the header '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string. jwtEncodedString: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+2020-12-04 17:33:00.089 +00:00 [INF] Authorization failed.
+2020-12-04 17:33:00.097 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2020-12-04 17:33:00.097 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 401 in 11.8817 ms
+2020-12-04 17:33:00.098 +00:00 [INF] Request finished in 59.0421ms 401 
+2020-12-04 17:33:48.500 +00:00 [INF] Starting Application
+2020-12-04 17:33:48.770 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 17:33:49.070 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 17:33:49.071 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 17:33:49.074 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 17:33:49.075 +00:00 [INF] Hosting environment: Development
+2020-12-04 17:33:49.075 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 17:34:00.542 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 17:34:00.576 +00:00 [INF] Request finished in 37.0989ms 307 
+2020-12-04 17:34:00.598 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 17:34:00.628 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:34:00.662 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:34:00.685 +00:00 [INF] Login attempt made
+2020-12-04 17:34:00.889 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:34:00.899 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 230.9917ms
+2020-12-04 17:34:00.901 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:34:00.903 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 300.4030 ms
+2020-12-04 17:34:00.905 +00:00 [INF] Request finished in 306.4339ms 200 application/json; charset=utf-8
+2020-12-04 17:34:09.802 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:34:09.885 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:34:09.893 +00:00 [INF] Authorization failed.
+2020-12-04 17:34:09.895 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:34:09.895 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 7.7749 ms
+2020-12-04 17:34:09.896 +00:00 [INF] Request finished in 94.738ms 403 
+2020-12-04 17:34:28.289 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 67
+2020-12-04 17:34:28.292 +00:00 [INF] Request finished in 3.2322ms 307 
+2020-12-04 17:34:28.295 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 67
+2020-12-04 17:34:28.299 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:34:28.301 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:34:28.303 +00:00 [INF] Login attempt made
+2020-12-04 17:34:28.305 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:34:28.306 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 4.8787ms
+2020-12-04 17:34:28.306 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:34:28.307 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 8.6538 ms
+2020-12-04 17:34:28.307 +00:00 [INF] Request finished in 11.7724ms 200 application/json; charset=utf-8
+2020-12-04 17:34:39.092 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:34:39.095 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:34:39.101 +00:00 [INF] Authorization was successful.
+2020-12-04 17:34:39.101 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:34:39.106 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 17:34:40.359 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 17:34:40.399 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 17:34:40.400 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1293.3287ms
+2020-12-04 17:34:40.400 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:34:40.400 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1304.8911 ms
+2020-12-04 17:34:40.401 +00:00 [INF] Request finished in 1309.0977ms 200 text/plain; charset=utf-8
+2020-12-04 17:36:15.805 +00:00 [INF] Starting Application
+2020-12-04 17:36:15.991 +00:00 [INF] User profile is available. Using 'C:\Users\pmccu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-12-04 17:36:16.302 +00:00 [INF] Now listening on: https://localhost:5001
+2020-12-04 17:36:16.302 +00:00 [INF] Now listening on: http://localhost:5000
+2020-12-04 17:36:16.304 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-12-04 17:36:16.308 +00:00 [INF] Hosting environment: Development
+2020-12-04 17:36:16.309 +00:00 [INF] Content root path: C:\Users\pmccu\OneDrive\Documents\DOTNET_Core_API_MongoDB\src\MongoDBApi
+2020-12-04 17:36:56.330 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 67
+2020-12-04 17:36:56.369 +00:00 [INF] Request finished in 43.1994ms 307 
+2020-12-04 17:36:56.397 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 67
+2020-12-04 17:36:56.429 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:36:56.482 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:36:56.515 +00:00 [INF] Login attempt made
+2020-12-04 17:36:56.611 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:36:56.621 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 132.7365ms
+2020-12-04 17:36:56.624 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:36:56.627 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 225.0413 ms
+2020-12-04 17:36:56.628 +00:00 [INF] Request finished in 230.6401ms 200 application/json; charset=utf-8
+2020-12-04 17:37:12.813 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:37:12.874 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:37:12.880 +00:00 [INF] Authorization was successful.
+2020-12-04 17:37:12.880 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:37:12.882 +00:00 [INF] Route matched with {action = "DatabaseInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DatabaseInfo() on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 17:37:14.178 +00:00 [INF] Processing DatabaseInfo request
+2020-12-04 17:37:14.223 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 17:37:14.224 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi) in 1341.6555ms
+2020-12-04 17:37:14.224 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.DatabaseInfo (MongoDBApi)'
+2020-12-04 17:37:14.224 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 200 in 1349.1873 ms
+2020-12-04 17:37:14.225 +00:00 [INF] Request finished in 1412.2062ms 200 text/plain; charset=utf-8
+2020-12-04 17:37:34.553 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Authentication/Login application/json 57
+2020-12-04 17:37:34.556 +00:00 [INF] Request finished in 3.8942ms 307 
+2020-12-04 17:37:34.573 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Authentication/Login application/json 57
+2020-12-04 17:37:34.575 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:37:34.577 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(MongoDBApi.Objects.UserModel) on controller MongoDBApi.Controllers.AuthenticationController (MongoDBApi).
+2020-12-04 17:37:34.579 +00:00 [INF] Login attempt made
+2020-12-04 17:37:34.580 +00:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-12-04 17:37:34.581 +00:00 [INF] Executed action MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi) in 3.6266ms
+2020-12-04 17:37:34.581 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.AuthenticationController.Login (MongoDBApi)'
+2020-12-04 17:37:34.581 +00:00 [INF] HTTP POST /Authentication/Login responded 200 in 6.6603 ms
+2020-12-04 17:37:34.582 +00:00 [INF] Request finished in 8.8381ms 200 application/json; charset=utf-8
+2020-12-04 17:37:45.473 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:37:45.476 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:37:45.484 +00:00 [INF] Authorization failed.
+2020-12-04 17:37:45.489 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:37:45.489 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 12.2624 ms
+2020-12-04 17:37:45.491 +00:00 [INF] Request finished in 18.6864ms 403 
+2020-12-04 17:37:50.243 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/DatabaseInfo  
+2020-12-04 17:37:50.245 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:37:50.248 +00:00 [INF] Authorization failed.
+2020-12-04 17:37:50.248 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2020-12-04 17:37:50.249 +00:00 [INF] HTTP GET /commands/DatabaseInfo responded 403 in 2.4384 ms
+2020-12-04 17:37:50.249 +00:00 [INF] Request finished in 6.6337ms 403 
+2020-12-04 17:38:00.693 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/commands/CollectionInfo?databaseName=test  
+2020-12-04 17:38:00.694 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:38:00.695 +00:00 [INF] Request finished in 2.1179ms 307 
+2020-12-04 17:38:00.702 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/commands/CollectionInfo?databaseName=test  
+2020-12-04 17:38:00.702 +00:00 [INF] Successfully validated the token.
+2020-12-04 17:38:00.704 +00:00 [INF] Authorization was successful.
+2020-12-04 17:38:00.704 +00:00 [INF] Executing endpoint 'MongoDBApi.Controllers.MainController.CollectionInfo (MongoDBApi)'
+2020-12-04 17:38:00.708 +00:00 [INF] Route matched with {action = "CollectionInfo", controller = "Main"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CollectionInfo(System.String) on controller MongoDBApi.Controllers.MainController (MongoDBApi).
+2020-12-04 17:38:00.866 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-12-04 17:38:00.866 +00:00 [INF] Executed action MongoDBApi.Controllers.MainController.CollectionInfo (MongoDBApi) in 157.7016ms
+2020-12-04 17:38:00.866 +00:00 [INF] Executed endpoint 'MongoDBApi.Controllers.MainController.CollectionInfo (MongoDBApi)'
+2020-12-04 17:38:00.866 +00:00 [INF] HTTP GET /commands/CollectionInfo?databaseName=test responded 200 in 163.8470 ms
+2020-12-04 17:38:00.867 +00:00 [INF] Request finished in 164.9443ms 200 text/plain; charset=utf-8

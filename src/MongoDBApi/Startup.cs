@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MongoDBApi.AuthClasses;
+using System.Security.Claims;
 
 namespace MongoDBApi
 {
@@ -51,8 +52,8 @@ namespace MongoDBApi
             
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("StandardUser", policy => policy.RequireClaim("IDNumber"));
-                options.AddPolicy("Administrator", policy => policy.RequireClaim("AllowUpload"));
+                options.AddPolicy(nameof(AuthLevel.StandardUser), policy => policy.RequireClaim(ClaimTypes.Role, nameof(AuthLevel.StandardUser)));
+                options.AddPolicy(nameof(AuthLevel.Administrator), policy => policy.RequireClaim(ClaimTypes.Role, nameof(AuthLevel.Administrator)));
             });
             
             services.AddControllers();

@@ -67,7 +67,7 @@ namespace MongoDBApi.Controllers
         }
 
         [HttpPost("UploadFiles")]
-        [Authorize(Policy = "StandardUser")]
+        [Authorize(Policy = "Administrator")]
         public async Task<IActionResult> PostFile(List<IFormFile> files, string databaseName)
         {
             return Ok(await _mongoCrudOps.UploadFiles(files, databaseName));
