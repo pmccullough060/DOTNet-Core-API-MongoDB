@@ -46,7 +46,7 @@ To retrieve your JWT token, send an HTTP Post Request to /Authentication/Login w
 The exception handling middleware is already set up and will return a simple "500 Internal Server Error" whenever there is an unhandled exception while the code is running in production. There is however a custom exception handler and error message "Unable to establish a connection with the database" for a bad database connection as this is useful to know even in production.
 
 ### Uploading and Download Blobs
-In MongoDB if you want to upload a Blob larger than 16mb you have to use GridFs which "chunks" the files into 255kb pieces. To make things simple I'm using gridFs to upload all the Blob files. I found it hard to find the C# code to do this properly so here it is for easy reference for anyone else trying this:
+In MongoDB if you want to upload a Blob larger than 16mb you have to use GridFs which "chunks" the files into 255kb pieces. To make things simple I'm using gridFs to upload all the Blob files. Here is the C# I used for anyone else trying this:
 
 ```csharp
 
