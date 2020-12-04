@@ -37,8 +37,41 @@ To retrieve your JWT token, send an HTTP Post Request to /Authentication/Login w
 
 ```json
 {
-  "username": "blah"
-  "password": "blah"
+  "username" : "blah",
+  "password" : "blah"
 }
 ```
+
+### Exception Handling Middleware
+The exception handling middleware is already set up and will return a simple "500 Internal Server Error" whenever there is an unhandled exception while the code is running in production. There is however a custom exception handler and error message "Unable to establish a connection with the database" for a bad database connection as this is useful to know even in production.
+
+### Uploading and Download Blobs
+In MongoDB if you want to upload a Blob larger than 16mb you have to use GridFs which "chunks" the files into 255kb pieces. To make things simple I'm using gridFs to upload all the Blob files. I found it hard to find the C# code to do this properly so here it is for easy reference for anyone else trying this:
+
+```csharp
+
+public async Task<string> UploadFiles(List<IFormFile> files, string databaseName)
+        {
+            var database = client.GetDatabase(databaseName);
+            var fs = new GridFSBucket(database); //this is the interesting step for uploading big files
+            long size = files.Sum(x => x.Length);
+            foreach(var file in files)
+            {
+                if(file.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        file.CopyTo(ms);
+                        ms.Position = 0; //reset the position of the memory stream
+                        await fs.UploadFromStreamAsync(file.FileName, ms);
+                    }
+                }
+            }
+            return _uploadData.Build(files.Count(), size);
+        }
+```
+
+
+
+
 
